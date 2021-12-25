@@ -12,7 +12,7 @@ library(limma)
 library(data.table)
 library(reshape2)
 ##step 1: create shRNA data based on common genes with copy number data
-shRNAGeneMap = readRDS("../Input_Data/ShrnaGeneMap.RDS")
+shRNAGeneMap = readRDS("../Input_Data/DRIVE/ShrnaGeneMap.RDS")
 data2<-data.frame(shRNAGeneMap)
 
 copyn<-read.csv("../Input_Data/Mutations/data_CNA.csv")
