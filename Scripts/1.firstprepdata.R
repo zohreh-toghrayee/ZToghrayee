@@ -52,8 +52,8 @@ data2<-data.frame(cancer_data)
 ####1) remove NA
 cancer_data2 = data2[which(!is.na(data2$PLASMID_COUNT)), ]
 
-saveRDS(cancer_data2,"../Input_Data/Processed_Data/DRIVEdata.RDS")
-write.csv(shRNAdata,"../Input_Data/Processed_Data/shRNAdata.csv")
+saveRDS(cancer_data2,"../Processed_Data/DRIVEdata.RDS")
+write.csv(shRNAdata,"../Processed_Data/shRNAdata.csv")
 ###########################################################################################
 ###############################################step4: creating mutational matrix
 
@@ -197,7 +197,7 @@ dif2<-setdiff(cancell,dif1)
 }
 #############
 
-saveRDS(wild_matix,"../Input_Data/Processed_Data/wild_matix.R")
-saveRDS(cancer_mutations3,"../Input_Data/Processed_Data/cancer_mutations.R")
+saveRDS(wild_matix,"../Processed_Data/wild_matix.R")
+saveRDS(cancer_mutations3,"../Processed_Data/cancer_mutations.R")
 
 
