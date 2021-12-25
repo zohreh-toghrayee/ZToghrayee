@@ -14,11 +14,11 @@ library(limma)
 library(data.table)
 library(reshape2)
 ##step 1: Call data including shRNA /DRIVE/NumberOfPool
-data2= readRDS("../Input_Data/Processed_Data/DRIVEdata.RDS")
+data2= readRDS("../Processed_Data/DRIVEdata.RDS")
 cancer_data<-data.frame(data2)
-shRNAdata=read.csv("../Input_Data/Processed_Data/shRNAdata.csv")
+shRNAdata=read.csv("../Processed_Data/shRNAdata.csv")
 
-myfinalgenes<-read.csv("../Input_Data/Processed_Data/NumberOfPools.csv")
+myfinalgenes<-read.csv("../Processed_Data/NumberOfPools.csv")
 ##########################################################determine genes
 mygenes<-data.frame(myfinalgenes)
 ##head(mygenes)
@@ -119,6 +119,6 @@ for (k in  1:length(fewgenes)){
 }##########append files of genes
 dataset2<-do.call(rbind, finalcancers3)
 ######################################################FOR RANKING
-write.csv(dataset2,"../Input_Data/Processed_Data/2.datasetonepoolf.csv")
+write.csv(dataset2,"../Processed_Data/2.datasetonepoolf.csv")
 
 

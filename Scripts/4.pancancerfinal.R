@@ -12,8 +12,8 @@ library("lme4")
 library(lmerTest)
 #######################END OF MUTATIONAL MATRIX
 ###############THIS IS DENOISE RANKED DATA AFTER SVA PACKAGE 
-onep = read.csv("../Input_Data/Processed_Data/2.datasetonepoolf.csv")
-twop = read.csv("../Input_Data/Processed_Data/2.datasettwopoolf.csv")
+onep = read.csv("../Processed_Data/2.datasetonepoolf.csv")
+twop = read.csv("../Processed_Data/2.datasettwopoolf.csv")
 onep <-data.frame(onep)
 twop<-data.frame(twop)
 
@@ -31,9 +31,9 @@ cancerd<-data.frame( cancerd1)
 
 ###############################MUTATIONAL MATRIX
 
-wild_matix<-readRDS("../Input_Data/Processed_Data/wild_matix.R")
-cancer_mutations3<-readRDS("../Input_Data/Processed_Data/cancer_mutations.R")
-shRNAdata=read.csv("../Input_Data/Processed_Data/shRNAdata.csv")
+wild_matix<-readRDS("../Processed_Data/wild_matix.R")
+cancer_mutations3<-readRDS("../Processed_Data/cancer_mutations.R")
+shRNAdata=read.csv("../Processed_Data/shRNAdata.csv")
 
 #####
 ###############well-known methods 
@@ -56,7 +56,7 @@ colnames(RSA) = unlist(lapply(tmpd, function(x){tolower(x[1])}))
 library(glmmTMB)
 ############# data2 here is drive data after preprocesing
 
-mygenes2<-c("KRAS","BRAF","TP53")
+mygenes2<-unique(cancerd$genename)
 twp2<-matrix(0,nrow=length(mygenes2),ncol=6)
 rownames(twp2)<-mygenes2
 colnames(twp2)<-c("N.wildtype","N.Mutant","ATARiS","DEMETER","RSA","Poisson")

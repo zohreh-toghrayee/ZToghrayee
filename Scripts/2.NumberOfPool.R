@@ -14,9 +14,9 @@ library(limma)
 library(data.table)
 library(reshape2)
 ##step 1: call two preprocessed data(shRNA nad Drive)
-data2=readRDS("../Input_Data/PreprocessingData/DRIVEdata.RDS")
+data2=readRDS("../Processed_Data/DRIVEdata.RDS")
 cancer_data<-data.frame(data2)
-shRNAdata=read.csv("../Input_Data/PreprocessingData/shRNAdata.csv")
+shRNAdata=read.csv("../Processed_Data/shRNAdata.csv")
 
 ##########################################################determine genes
 fewgenes<-unique(shRNAdata$GENESYMBOLS)
@@ -40,4 +40,4 @@ print(k)
 }
 names(myfinaltwopoolgenes)<-fewgenes1
 #####################################################original file for get denoised logFC
-write.csv(myfinaltwopoolgenes,"../Input_Data/Processed_Data/NumberOfPools.csv")
+write.csv(myfinaltwopoolgenes,"../Processed_Data/NumberOfPools.csv")
