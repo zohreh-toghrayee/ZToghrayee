@@ -12,8 +12,8 @@ library("lme4")
 library(lmerTest)
 #######################END OF MUTATIONAL MATRIX
 ###############THIS IS DENOISE RANKED DATA AFTER SVA PACKAGE 
-onep = read.csv("../Input_Data/Processed_Data/2.datasetonepoolf.csv")
-twop = read.csv("../Input_Data/Processed_Data/2.datasettwopoolf.csv")
+onep = read.csv("../Processed_Data/2.datasetonepoolf.csv")
+twop = read.csv("../Processed_Data/2.datasettwopoolf.csv")
 onep <-data.frame(onep)
 twop<-data.frame(twop)
 
@@ -31,14 +31,14 @@ cancerd<-data.frame( cancerd1)
 
 write.csv(cancerd,"../Input_Data/Processed_Data/KRASrankeddata.csv")
 #################raw data
-data2= readRDS("../Input_Data/Processed_Data/DRIVEdata.RDS")
+data2= readRDS("../Processed_Data/DRIVEdata.RDS")
 cancer_data<-data.frame(data2)
-shRNAdata=read.csv("../Input_Data/Processed_Data/shRNAdata.csv")
+shRNAdata=read.csv("../Processed_Data/shRNAdata.csv")
 
   shrna<-shRNAdata[which(shRNAdata$GENESYMBOLS %in% "KRAS"),"SEQ" ]
   cancer_dataf<-cancerd[which(cancerd$SEQ %in% shrna),]
   shRNAGeneMap2<-shRNAdata[which(shRNAdata$GENESYMBOLS %in% "KRAS"), ]
   cancer= left_join( cancer_dataf, shRNAGeneMap2, by="SEQ")
 cancer$logFC=cancer$SAMPLE_COUNT/cancer$PLASMID_COUNT
-write.csv(cancer,"../Input_Data/Processed_Data/KRASrawdata.csv")
+write.csv(cancer,"../Processed_Data/KRASrawdata.csv")
 

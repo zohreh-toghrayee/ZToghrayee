@@ -11,8 +11,8 @@ library("tidyr")
 library("lme4")
 library(lmerTest)
 
-onep = read.csv("2.datasetonepoolf.csv")
-twop = read.csv("2.datasettwopoolf.csv")
+onep = read.csv("../Processed_Data/2.datasetonepoolf.csv")
+twop = read.csv("../Processed_Data/2.datasettwopoolf.csv")
 onep <-data.frame(onep)
 twop<-data.frame(twop)
 
@@ -74,4 +74,4 @@ i=which(mygenes2=="KRAS")
 #}
 
 
-write.csv(vvm,"6.typeoneerror.csv")
+write.csv(vvm,"../Processed_Data/6.typeoneerror.csv")
