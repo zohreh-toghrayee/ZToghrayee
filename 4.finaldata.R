@@ -12,8 +12,8 @@ library("lme4")
 library(lmerTest)
 #######################END OF MUTATIONAL MATRIX
 ###############THIS IS DENOISE RANKED DATA AFTER SVA PACKAGE 
-onep = read.csv("2.datasetonepoolf.csv")
-twop = read.csv("2.datasettwopoolf.csv")
+onep = read.csv("../Processed_Data/2.datasetonepoolf.csv")
+twop = read.csv("../Processed_Data/2.datasettwopoolf.csv")
 onep <-data.frame(onep)
 twop<-data.frame(twop)
 
@@ -30,4 +30,4 @@ cancerd1=denoisedlogfc %>%  group_by(CLEANNAME) %>%  mutate(rank = min_rank(Newl
 cancerd<-data.frame( cancerd1)
 
 
-write.csv(cancerd,"4.finaldata.csv")
+write.csv(cancerd,"../Processed_Data/finaldata.csv")
