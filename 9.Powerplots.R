@@ -10,12 +10,13 @@ library("dplyr")
 library("tidyr")
 library("lme4")
 library(lmerTest)
+
 #######################call mutational status data
-wild_matix<-readRDS("../Input_Data/Processed_Data/wild_matix.R")
-cancer_mutations3<-readRDS("../Input_Data/Processed_Data/cancer_mutations.R")
+wild_matix<-readRDS("../Processed_Data/wild_matix.R")
+cancer_mutations3<-readRDS("../Processed_Data/cancer_mutations.R")
 ###############THIS IS DENOISE RANKED DATA AFTER SVA PACKAGE 
-KRASk = read.csv("../Input_Data/Processed_Data/KRASrankeddata.csv")
-KRASW = read.csv("../Input_Data/Processed_Data/KRASrawdata.csv")
+KRASk = read.csv("../Processed_Data/KRASrankeddata.csv")
+KRASW = read.csv("../Processed_Data/KRASrawdata.csv")
 kras2<-data.frame(KRASW)
 cancer<-data.frame(KRASk)
 cancelf<-unique(cancer$CLEANNAME)
